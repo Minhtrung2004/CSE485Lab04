@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.common.home-page')
 
 @section('content')
     <h1>Thêm mới Reader</h1>

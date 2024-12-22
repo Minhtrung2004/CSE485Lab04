@@ -2,7 +2,7 @@
     <ul class="nav metismenu" id="side-menu">
         <li class="nav-header">
             <div class="dropdown profile-element"> <span>
-                    <img alt="image" class="img-circle" src="{{asset('backend/img/profile_small.jpg')}}" />
+                    <img alt="image" class="img-circle" src="{{ asset('backend/img/profile_small.jpg') }}" />
                 </span>
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David
@@ -27,7 +27,7 @@
             <ul class="nav nav-second-level">
                 <li><a href="index.html"></a></li>
                 <li class="active"><a href="#">Book Management</a></li>
-                <li><a href="#">Reader Management</a></li>
+                <li><a href="{{ route('admin.readers.index') }}">Reader Management</a></li>
                 <li><a href="#">Rorrows Management</a></li>
             </ul>
         </li>

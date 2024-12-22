@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('admin.common.home-page')
 
 @section('content')
     <h1>Danh sách Người đọc</h1>
-    <a href="{{ route('admin.readers.create') }}" class="btn btn-primary">Thêm mới</a>
+    <a href="{{ route('admin.readers.create') }}" class="btn btn-primary mb-4">Thêm mới</a>
 
     <table class="table">
         <thead>
