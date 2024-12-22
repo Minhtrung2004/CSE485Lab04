@@ -9,7 +9,7 @@ use Illuminate\Testing\Fluent\Concerns\Has;
 class Reader extends Model
 {
     use HasFactory;
-    protected $fillbale = [
+    protected $fillable = [
         'name',
         'birthday',
         'address',

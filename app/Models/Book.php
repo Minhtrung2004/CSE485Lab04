@@ -9,7 +9,7 @@ use App\Models\borrow;
 class Book extends Model
 {
     use HasFactory;
-    protected $fillbale = [
+    protected $fillable = [
         'name',
         'author',
         'category',
