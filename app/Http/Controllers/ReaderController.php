@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reader;  // Dòng này là để import model Reader
 use Illuminate\Http\Request;
 
 class ReaderController extends Controller
@@ -11,8 +12,8 @@ class ReaderController extends Controller
      */
     public function index()
     {
-        $readers = Reader::all();
-        return view('readers.index', compact('readers'));
+        $readers = Reader::latest()->paginate(10);
+        return view('admin.readers.index', compact('readers'));
     }
 
     /**
@@ -20,7 +21,7 @@ class ReaderController extends Controller
      */
     public function create()
     {
-        return view('readers.create');
+        return view('admin.readers.create');
     }
 
     /**
@@ -32,19 +33,19 @@ class ReaderController extends Controller
             'name' => 'required|string|max:255',
             'birthday' => 'required|date',
             'address' => 'required|string|max:255',
-            'phone' => 'required|string|max:15',
+            'phone' => 'required|digits:10',
         ]);
 
         Reader::create($validated);
-        return redirect()->route('readers.index')->with('success', 'Tạo Thành Công!');
+        return redirect()->route('admin.readers.index')->with('success', 'Tạo người dùng thành công!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Read $reader)
+    public function show(Reader $reader)
     {
-        return view('readers.show', compact('reader'));
+        return view('admin.readers.show', compact('reader'));
     }
 
     /**
@@ -52,7 +53,7 @@ class ReaderController extends Controller
      */
     public function edit(Reader $reader)
     {
-        return view('readers.edit', compact('reader'));
+        return view('admin.readers.edit', compact('reader'));
     }
 
     /**
@@ -68,7 +69,7 @@ class ReaderController extends Controller
         ]);
 
         $reader->update($validated);
-        return redirect()->route('readers.index')->with('success', 'Cập nhật thành công!');
+        return redirect()->route('admin.readers.index')->with('success', 'Cập nhật thành công!');
     }
 
     /**
@@ -77,6 +78,6 @@ class ReaderController extends Controller
     public function destroy(Reader $reader)
     {
         $reader->delete();
-        return redirect()->route('readers.index')->with('success', 'Reader deleted successfully!');
+        return redirect()->route('admin.readers.index')->with('success', 'Xóa người dùng thành công!');
     }
 }
