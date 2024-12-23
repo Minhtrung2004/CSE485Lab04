@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\ReaderController;
 use App\Models\Borrow;
@@ -12,5 +13,6 @@ Route::get('/', function () {
 Route::get('/borrow', [BorrowController::class, 'index'])->name('borrow.index');
 
 Route::prefix('admin')->name('admin.')->group(function() {
+    Route::resource('book', BookController::class);
     Route::resource('readers', ReaderController::class);
 });

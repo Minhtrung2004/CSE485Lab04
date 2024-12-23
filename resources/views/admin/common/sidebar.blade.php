@@ -26,7 +26,7 @@
                 <span class="fa arrow"></span></a>
             <ul class="nav nav-second-level">
                 <li><a href="index.html"></a></li>
-                <li class="active"><a href="#">Book Management</a></li>
+                <li class="active"><a href="{{ route('admin.book.index') }}">Book Management</a></li>
                 <li><a href="{{ route('admin.readers.index') }}">Reader Management</a></li>
                 <li><a href="#">Rorrows Management</a></li>
             </ul>
