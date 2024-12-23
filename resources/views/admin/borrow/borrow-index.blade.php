@@ -4,6 +4,11 @@
         <div class="ibox float-e-margins">
             <div class="ibox-title">
                 <h5>Borrow Management</h5>
+                <div class="ibox-tools">
+                    <a href="#" class="btn btn-primary btn-sm" title="Thêm Dòng" onclick="addRow()">
+                        <i class="fa fa-plus"></i> Thêm
+                    </a>
+                </div>
             </div>
             <div class="ibox-content">
                 <table class="table table-hover no-margins" style="border: 2px solid #ddd; border-collapse: collapse;">
