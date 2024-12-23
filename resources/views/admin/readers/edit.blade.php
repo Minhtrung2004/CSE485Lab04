@@ -12,7 +12,6 @@
             </ul>
         </div>
     @endif
-
     <form action="{{ route('admin.readers.update', $reader) }}" method="POST">
         @csrf
         @method('PUT')
@@ -36,6 +35,10 @@
             <input type="text" name="phone" id="phone" class="form-control"
                 value="{{ old('phone', $reader->phone) }}" required>
         </div>
-        <button type="submit" class="btn btn-success">Cập nhật</button>
+        <div class="text-end">
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-save"></i> cập nhật
+            </button>
+        </div>
     </form>
 @endsection
