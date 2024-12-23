@@ -9,9 +9,6 @@ use App\Models\Reader;
 
 class ReaderSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         Reader::factory()->count(10)->create();

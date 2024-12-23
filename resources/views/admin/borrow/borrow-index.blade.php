@@ -21,15 +21,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($borrows as $borrow)
                         <tr>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
-                            <td style="border: 1px solid #ddd; padding: 8px;"></td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->id}}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->reader->id}}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->book->id}}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->borrow_date}}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->return_date}}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->status}}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->created_at}}</td>
+                            <td style="border: 1px solid #ddd; padding: 8px;">{{$borrow->updated_at}}</td>
                             <td style="border: 1px solid #ddd; padding: 8px; display: flex; gap: 10px">
                                 {{-- btn show --}}
                                 <a href="#" class="btn btn-info btn-sm" title="show" name="show">
@@ -50,6 +51,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
