@@ -15,6 +15,8 @@ o Cập nhật trạng thái trả sách.
 
 Giao diện -- Đoàn Thanh Tú và Ngô Minh Trung
 
+khởi tạo dự án xây seeder, table, migrations --Đoàn Thanh Tú
+
 
 -- Lưu trữ thông tin sách
 ![image](https://github.com/user-attachments/assets/ceb78805-f609-4a0b-9d28-c0b165a873ef)
