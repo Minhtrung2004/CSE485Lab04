@@ -45,6 +45,11 @@
         {{ $books->links('pagination::bootstrap-4') }}
     </div>
 
+     <!-- Hiển thị trang hiện tại và tổng số trang -->
+     <div class="text-center">
+        <p>Trang {{ $books->currentPage() }} / {{ $books->lastPage() }} (Tổng số sách: {{ $books->total() }})</p>
+    </div>
+    
     <script>
         function confirmDelete() {
             return confirm('Bạn có chắc chắn muốn xóa sách này không?');
