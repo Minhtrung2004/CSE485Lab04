@@ -11,6 +11,6 @@ class ReaderSeeder extends Seeder
 {
     public function run(): void
     {
-        Reader::factory()->count(10)->create();
+        Reader::factory()->count(100)->create();
     }
 }

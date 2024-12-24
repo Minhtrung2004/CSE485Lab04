@@ -43,20 +43,26 @@
                                         title="show" name="show">
                                         <i class="fa fa-eye"></i> Show
                                     </a>
-                                    <!-- btn edit -->
+
+                                    {{-- btn edit --}}
                                     <a href="{{ route('admin.readers.edit', $reader) }}" class="btn btn-warning btn-sm"
                                         title="edit" name="edit">
                                         <i class="fa fa-edit"></i> Edit
                                     </a>
 
-                                    <!-- Form xóa -->
+                                    {{-- btn xem lịch sử --}}
+                                    <a href="{{ route('readers.history', $reader->id) }}" class="btn btn-info btn-sm"
+                                        title="Xem lịch sử">
+                                        <i class="fa fa-history"></i> Xem lịch sử
+                                    </a>
+
+                                    {{-- Form xóa --}}
                                     <form action="{{ route('admin.readers.destroy', $reader) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" onclick="return confirmDelete();">
                                             <i class="fa fa-trash"></i> Delete
                                         </button>
-
                                     </form>
                                 </td>
                             </tr>

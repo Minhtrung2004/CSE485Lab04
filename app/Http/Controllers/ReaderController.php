@@ -80,4 +80,13 @@ class ReaderController extends Controller
         $reader->delete();
         return redirect()->route('admin.readers.index')->with('success', 'Xóa người dùng thành công!');
     }
+
+    public function history(Reader $reader)
+    {
+        // Lấy danh sách mượn trả của độc giả (phân trang nếu cần)
+        $borrows = $reader->borrows()->with('book')->paginate(10);
+
+        // Truyền dữ liệu qua view
+        return view('admin.readers.history', compact('reader', 'borrows'));
+    }
 }

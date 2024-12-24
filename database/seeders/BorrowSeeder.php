@@ -4,15 +4,13 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Book;
+use App\Models\Borrow;
 
-class BookSeeder extends Seeder
+class BorrowSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
-        Book::factory()->count(100)->create();
+        Borrow::factory()->count(100)->create();
     }
 }
