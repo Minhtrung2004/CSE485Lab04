@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.books.store') }}" method="POST">
+    <form action="{{ route('admin.book.store') }}" method="POST">
         @csrf 
         <div class="mb-3">
             <label for="name" class="form-label">Tên sách</label>

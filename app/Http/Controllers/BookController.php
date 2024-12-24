@@ -28,9 +28,23 @@ class BookController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+{
+    // Validate dữ liệu đầu vào
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'author' => 'required|string|max:255',
+        'category' => 'required|string|max:255',
+        'year' => 'required|integer|min:1900|max:' . date('Y'),
+        'quantity' => 'required|integer|min:1',
+    ]);
+
+    // Tạo mới một bản ghi sách
+    Book::create($validated);
+
+    // Chuyển hướng về danh sách sách và gửi thông báo thành công
+    return redirect()->route('admin.book.index')->with('success', 'Tạo sách thành công!');
+}
+
 
     /**
      * Display the specified resource.
