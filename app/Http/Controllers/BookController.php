@@ -28,53 +28,62 @@ class BookController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    // Validate dữ liệu đầu vào
-    $validated = $request->validate([
-        'name' => 'required|string|max:255',
-        'author' => 'required|string|max:255',
-        'category' => 'required|string|max:255',
-        'year' => 'required|integer|min:1900|max:' . date('Y'),
-        'quantity' => 'required|integer|min:1',
-    ]);
+    {
+        // Validate dữ liệu đầu vào
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'category' => 'required|string|max:255',
+            'year' => 'required|integer|min:1900|max:' . date('Y'),
+            'quantity' => 'required|integer|min:1',
+        ]);
 
-    // Tạo mới một bản ghi sách
-    Book::create($validated);
+        // Tạo mới một bản ghi sách
+        Book::create($validated);
 
-    // Chuyển hướng về danh sách sách và gửi thông báo thành công
-    return redirect()->route('admin.book.index')->with('success', 'Tạo sách thành công!');
-}
+        // Chuyển hướng về danh sách sách và gửi thông báo thành công
+        return redirect()->route('admin.book.index')->with('success', 'Tạo sách thành công!');
+    }
 
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Book $book)
     {
-        //
+        return view('admin.book.show', compact('book'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $book = Book::findOrFail($id); // Lấy thông tin cuốn sách cần chỉnh sửa
+        return view('admin.book.edit', compact('book')); // Trả về view với thông tin sách
     }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'author' => 'required|string|max:255',
+        'category' => 'required|string|max:255',
+        'year' => 'required|integer|min:1000|max:9999', // Năm phải trong khoảng hợp lệ
+        'quantity' => 'required|integer|min:1', // Số lượng phải lớn hơn 0
+    ]);
+
+    $book = Book::findOrFail($id); // Lấy cuốn sách cần cập nhật
+    $book->update($validated); // Cập nhật dữ liệu
+
+    return redirect()->route('admin.book.index')->with('success', 'Cập nhật sách thành công!');
+}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        
-    }
+    public function destroy(string $id) {}
 }
