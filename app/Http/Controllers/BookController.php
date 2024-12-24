@@ -85,5 +85,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id) {}
+    public function destroy(Book $book)
+{
+    $book->delete();
+    return redirect()->route('admin.book.index')->with('success', 'Cuốn sách đã được xóa thành công!');
+}
+
 }
