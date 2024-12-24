@@ -20,16 +20,22 @@
             <div class="logo-element">
                 IN+
             </div>
-        </li>
-        <li class="active">
-            <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">library-management</span>
-                <span class="fa arrow"></span></a>
-            <ul class="nav nav-second-level">
-                <li><a href="index.html"></a></li>
-                <li class="active"><a href="{{ route('admin.book.index') }}">Book Management</a></li>
-                <li><a href="{{ route('admin.readers.index') }}">Reader Management</a></li>
-                <li><a href="#">Rorrows Management</a></li>
-            </ul>
-        </li>
+            <li class="active">
+                <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">library-management</span>
+                    <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="index.html"></a></li>
+                    <li class="{{ Route::currentRouteName() == 'admin.book.index' ? 'active' : '' }}">
+                        <a href="{{ route('admin.book.index') }}">Book Management</a>
+                    </li>
+                    <li class="{{ Route::currentRouteName() == 'admin.readers.index' ? 'active' : '' }}">
+                        <a href="{{ route('admin.readers.index') }}">Reader Management</a>
+                    </li>
+                    <li class="{{ Route::currentRouteName() == 'admin.borrow.index' ? 'active' : '' }}">
+                        <a href="#">Borrows Management</a>
+                    </li>
+                </ul>
+            </li>
+            
     </ul>
 </div>
